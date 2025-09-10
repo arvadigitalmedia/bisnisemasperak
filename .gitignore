@@ -1,0 +1,19 @@
+# logs & sistem
+*.log
+*.swp
+.DS_Store
+Thumbs.db
+
+# composer/npm (kalau ada)
+vendor/
+node_modules/
+
+# kredensial & env
+.env
+config.php
+*.ini
+*.local
+
+# upload/cache (kalau ada)
+uploads/
+cache/
