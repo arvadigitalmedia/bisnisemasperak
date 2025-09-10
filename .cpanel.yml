@@ -1,0 +1,13 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/bustanu1/bisnisemasperak.com
+    # sinkronkan file dari repo kerja (posisi saat deploy = root repo di server)
+    - /bin/rsync -av --delete \
+        --exclude ".git" \
+        --exclude ".cpanel.yml" \
+        --exclude "uploads/" \
+        --exclude "storage/" \
+        ./ $DEPLOYPATH
+    # pastikan folder upload tetap ada
+    - /bin/mkdir -p $DEPLOYPATH/uploads $DEPLOYPATH/storage || true
