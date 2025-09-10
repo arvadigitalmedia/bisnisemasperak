@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terima Kasih Sudah Mendaftar | Bisnis Emas Perak Indonesia</title>
+  <meta name="description" content="Anda telah terdaftar di sistem kami. Silakan akses member area dan cek email untuk informasi lebih lanjut.">
+  <style>
+    :root{
+      --gold-1:#f8e7b9; --gold-2:#e6c768; --gold-3:#d4af37; --gold-4:#b8962e;
+      --silver-1:#f2f2f7; --silver-2:#d9d9e6; --silver-3:#bfc2cc; --silver-4:#9aa0aa;
+      --ink:#1b1b22; --glass: rgba(255,255,255,.65);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", sans-serif;
+      background:
+        radial-gradient(1200px 800px at 20% 10%, var(--gold-1), transparent 60%),
+        radial-gradient(1000px 700px at 80% 90%, var(--silver-2), transparent 60%),
+        linear-gradient(135deg, var(--gold-3), var(--silver-3));
+      background-size: 120% 120%, 120% 120%, 200% 200%;
+      animation: bgShift 18s ease-in-out infinite alternate;
+      overflow-x:hidden;
+    }
+    @keyframes bgShift{ to { background-position: 100% 40%, 0% 60%, 100% 100%; } }
+
+    .wrap{min-height:100%; display:flex; align-items:center; justify-content:center; padding:56px 16px;}
+    .card{
+      position:relative; width:min(980px, 96vw);
+      border-radius:26px; background:var(--glass);
+      backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,.7);
+      box-shadow: 0 24px 60px rgba(0,0,0,.25);
+      padding: 40px 28px; text-align:center; overflow:hidden;
+    }
+    .ring{
+      position:absolute; inset:-2px; pointer-events:none; opacity:.3;
+      background: conic-gradient(from 180deg at 50% 50%,
+        rgba(212,175,55,.35), rgba(192,192,192,.22), rgba(212,175,55,.35));
+      animation: spin 16s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(1turn); } }
+    h1{
+      margin:0 0 12px; font-size: clamp(26px, 4.8vw, 46px);
+      background: linear-gradient(90deg, var(--gold-3), var(--silver-3));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      letter-spacing:.02em;
+    }
+    p.lead{margin:0 auto 18px; max-width:70ch; line-height:1.7; font-size:clamp(15px, 2.3vw, 18px);}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:center; margin-top:10px;}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 18px; border-radius:12px; font-weight:800; text-decoration:none;
+      color:#fff; letter-spacing:.02em; box-shadow: 0 14px 28px rgba(0,0,0,.28);
+      background:linear-gradient(90deg, var(--gold-4), var(--gold-3));
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+    }
+    .btn--silver{ background:linear-gradient(90deg, var(--silver-4), var(--silver-3)); }
+    .btn:hover{ transform: translateY(-2px); box-shadow:0 18px 36px rgba(0,0,0,.32); opacity:.95; }
+    .btn svg{ width:18px; height:18px; }
+    .footer{ margin-top:22px; font-size:13px; opacity:.85; }
+
+    /* Sponsor card */
+    .sponsor{
+      margin-top:26px; display:grid; grid-template-columns: 96px 1fr; gap:16px;
+      align-items:center; text-align:left; background:rgba(255,255,255,.7);
+      border:1px solid rgba(0,0,0,.06); border-radius:16px; padding:16px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.12);
+      max-width:720px; margin-left:auto; margin-right:auto;
+    }
+    .avatar{
+      width:96px; height:96px; border-radius:50%; object-fit:cover; object-position:center;
+      border:3px solid rgba(212,175,55,.55); background:#fff;
+    }
+    .sponsor h3{margin:0 0 6px; font-size:20px;}
+    .sponsor p{margin:2px 0; font-size:14px;}
+    .muted{opacity:.8}
+
+    /* Shortcode containers */
+    .datasponsor{ font-weight:700; }
+    .datasponsor.email, .datasponsor.whatsapp{ font-weight:600; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" role="status" aria-live="polite">
+      <div class="ring" aria-hidden="true"></div>
+
+      <h1>Terima Kasih Sudah Mendaftar</h1>
+      <p class="lead">
+        Anda telah terdaftar di sistem kami. Silakan akses <strong>Member Area</strong> untuk melengkapi data dan mulai eksplor fitur.
+        Mohon <strong>cek email</strong> Anda untuk informasi lebih lanjut.
+      </p>
+
+      <div class="cta">
+        <a class="btn" href="/dashboard" aria-label="Masuk ke Member Area">
+          <!-- icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c.9 0 1.7-.3 2.3-.9.6-.6.9-1.4.9-2.3s-.3-1.7-.9-2.3S12.9 4 12 4s-1.7.3-2.3.9S8.8 6.3 8.8 7.2 9.1 8.9 9.7 9.5 11.1 11 12 11zm0 2c-3.3 0-6 2.7-6 6h12c0-3.3-2.7-6-6-6z"/>
+          </svg>
+          Masuk ke Member Area
+        </a>
+
+        <a id="btnWA" class="btn btn--silver" href="#" target="_blank" rel="noopener" aria-label="Konsultasi dengan Sponsor via WhatsApp">
+          <!-- WA icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true">
+            <path fill="currentColor" d="M380.9 97.1C339-3.5 219.9-33.8 131.6 28.2 73.4 68.6 39 133.8 39 203.6c0 36.1 9.5 71.1 27.5 102.1L32 480l179.9-33.5c29.5 16.2 62.8 24.8 96.6 24.8h.1c69.9 0 135.1-34.4 175.4-92.6 62-88.4 31.7-207.5-68.1-259.6zm-92.7 298.1c-27.3 0-54-7.3-77.4-21.2l-5.5-3.3-106.8 19.9 20.4-104.3-3.6-5.7C98 258 90.6 231.8 90.6 203.6c0-93.1 75.8-168.9 168.9-168.9 45.1 0 87.5 17.6 119.3 49.6 65.7 65.7 66.2 172.7 1.2 238.9-31.9 32.6-75 51.9-119.2 51.9z"/>
+          </svg>
+          Konsultasi dengan Sponsor
+        </a>
+      </div>
+
+      <!-- Sponsor box -->
+      <div class="sponsor" aria-label="Informasi Sponsor EPI Channel">
+        <div>
+          <!-- Foto profil round: shortcode dibungkus .datasponsor -->
+          <span class="datasponsor fotoprofil">
+            <img class="avatar" src="../../upload/[fotoprofil]" alt="Foto Sponsor" />
+          </span>
+        </div>
+        <div>
+          <h3>
+            <span class="muted">Sponsor:</span>
+            <span class="datasponsor nama">[nama]</span>
+          </h3>
+          <p>Email: <span class="datasponsor email">[email]</span></p>
+          <p>WhatsApp: <span class="datasponsor whatsapp">[whatsapp]</span></p>
+          <p class="muted" style="margin-top:8px">Silakan hubungi sponsor Anda untuk konsultasi dan panduan langkah berikutnya.</p>
+        </div>
+      </div>
+
+      <div class="footer">
+        &copy; <span id="y"></span> Emas Perak Indonesia • Semua hak dilindungi.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Util: normalisasi nomor WA
+    function normalizeWa(input){
+      if(!input) return '';
+      let d = (input+'').replace(/[^0-9+]/g,'');
+      if(d.startsWith('+')) d = d.slice(1);
+      if(d.startsWith('0')) d = '62' + d.slice(1);
+      if(/^8\\d{7,}$/.test(d)) d = '62' + d;
+      return d;
+    }
+    // Pasang href WA dari shortcode [whatsapp] + personalisasi [nama]
+    (function(){
+      const tWa = document.querySelector('.datasponsor.whatsapp');
+      const tNama = document.querySelector('.datasponsor.nama');
+      const btn = document.getElementById('btnWA');
+      const nama = (tNama ? tNama.textContent : '').trim() || 'Sponsor';
+      const num = normalizeWa(tWa ? tWa.textContent.trim() : '');
+      const msg = encodeURIComponent('Assalamualaikum... halo ' + nama + ', saya baru saja mendaftar di bisnisemasperak.com, mohon bantuannya 🙏');
+      if(btn && num){
+        btn.href = `https://wa.me/${num}?text=${msg}`;
+      } else if(btn) {
+        btn.href = '#';
+      }
+      document.getElementById('y').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
