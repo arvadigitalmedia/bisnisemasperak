@@ -2,12 +2,24 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/bustanu1/bisnisemasperak.com
-    # sinkronkan file dari repo kerja (posisi saat deploy = root repo di server)
+
+    # Sinkronkan isi repo → folder live (hapus file yang sudah tidak ada)
     - /bin/rsync -av --delete \
         --exclude ".git" \
+        --exclude ".github" \
         --exclude ".cpanel.yml" \
         --exclude "uploads/" \
         --exclude "storage/" \
-        ./ $DEPLOYPATH
-    # pastikan folder upload tetap ada
+        ./ $DEPLOYPATH/
+
+    # Pastikan folder upload tetap ada
     - /bin/mkdir -p $DEPLOYPATH/uploads $DEPLOYPATH/storage || true
+
+    # (Opsional) set permission aman
+    - /bin/find $DEPLOYPATH -type d -exec /bin/chmod 755 {} \;
+    - /bin/find $DEPLOYPATH -type f -exec /bin/chmod 644 {} \;
+
+    # (Opsional sesuai stack) contoh composer/npm build:
+    # - /usr/local/bin/composer install --no-dev -d $DEPLOYPATH
+    # - /usr/local/bin/npm ci --prefix $DEPLOYPATH
+    # - /usr/local/bin/npm run build --prefix $DEPLOYPATH
